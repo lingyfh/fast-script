@@ -130,16 +130,18 @@ if __name__ == '__main__':
 
     temp_dst = 'temp_dst_' + str(time.time().real)
     template_name = 'fast-template'
+    template_config_name = 'fast_template'
 
     os.system('git clone https://github.com/lingyfh/fast-template.git')
     os.system('mkdir ' + temp_dst)
     os.system('cp -rf fast-template/fast-template ' + temp_dst)
 
     # 修改bundle identifier
-    replace_all_file_content(temp_dst, 'com.lingyfh.myfirst', app_identifier)
+    replace_all_file_content(temp_dst, 'com.lingyfh.fast-template', app_identifier)
 
-    # 修改所有配置中的fast-template
+    # 修改所有配置中的fast-template, fast_template
     replace_all_file_content(temp_dst, template_name, p_name)
+    replace_all_file_content(temp_dst, template_config_name, p_name)
 
     # 修改所有fast-template文件名字
     replace_all_file(temp_dst, template_name, p_name)
